@@ -2,9 +2,7 @@
   "scripts": {
     "build": "ncc build node_modules/.bin/semantic-release -m -o lib"
   },
-  "dependencies": {
-    "@actions/core": "^1.2.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@zeit/ncc": "^0.22.1",
     "semantic-release": "^17.0.7"
