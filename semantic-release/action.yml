@@ -5,7 +5,3 @@ description: A Github Action for Semantic Release from Emphori
 runs:
   using: node12
   main: lib/index.js
-
-branding:
-  icon: tag
-  color: yellow

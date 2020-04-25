@@ -1,2 +1,4 @@
-# Semantic Release Action
+# GitHub Actions
+
+## Semantic Release
 
