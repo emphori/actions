@@ -1,0 +1,30 @@
+diff --git a/node_modules/semantic-release/lib/plugins/utils.js b/node_modules/semantic-release/lib/plugins/utils.js
+index 69bba27..191987c 100644
+--- a/node_modules/semantic-release/lib/plugins/utils.js
++++ b/node_modules/semantic-release/lib/plugins/utils.js
+@@ -1,6 +1,12 @@
+ const {dirname} = require('path');
+ const {isString, isFunction, castArray, isArray, isPlainObject, isNil} = require('lodash');
+-const resolveFrom = require('resolve-from');
++
++const preloadedPlugins = {
++  "@semantic-release/commit-analyzer": require('@semantic-release/commit-analyzer'),
++  "@semantic-release/github": require('@semantic-release/github'),
++  "@semantic-release/npm": require('@semantic-release/npm'),
++  "@semantic-release/release-notes-generator": require('@semantic-release/release-notes-generator')
++}
+ 
+ const validateSteps = (conf) => {
+   return conf.every((conf) => {
+@@ -45,10 +51,7 @@ function validateStep({required}, conf) {
+ }
+ 
+ function loadPlugin({cwd}, name, pluginsPath) {
+-  const basePath = pluginsPath[name]
+-    ? dirname(resolveFrom.silent(__dirname, pluginsPath[name]) || resolveFrom(cwd, pluginsPath[name]))
+-    : __dirname;
+-  return isFunction(name) ? name : require(resolveFrom.silent(basePath, name) || resolveFrom(cwd, name));
++  return isFunction(name) ? name : preloadedPlugins[name];
+ }
+ 
+ function parseConfig(plugin) {
