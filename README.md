@@ -10,3 +10,33 @@ or Tweet your successes if you find them useful! Happy hacking!
 
 ## Semantic Release
 
+An action to quickly incorporate the wonderful Semantic Release version
+management and publishing package into your workflow. 
+
+<!--
+Whilst there are a couple of other actions implementing the Semantic Release
+package, ours has a little edge that you can read about [here].
+-->
+
+### Usage
+
+To use the Semantic Release action, add the following step at the end of your
+workflow (it should be placed after your build and any tests have been run).
+
+```yaml
+steps:
+  ...
+- name: Release
+  uses: Emphori/actions/semantic-release@32c4df6
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+The table below will explain the environment variable used.
+
+| Name           | Description                                                             |
+| ---            | ---                                                                     |
+| `GITHUB_TOKEN` | GitHub authentication token (only personal access tokens are supported) |
+| `NPM_TOKEN`    | NPM token (only the `auth-only` level of NPM's 2FA is supported)        |
+
