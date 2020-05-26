@@ -27,7 +27,7 @@ workflow (it should be placed after your build and any tests have been run).
 steps:
   ...
 - name: Release
-  uses: Emphori/actions/semantic-release@32c4df6
+  uses: Emphori/actions/semantic-release@c1bc665
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
