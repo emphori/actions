@@ -1,0 +1,20 @@
+name: Setup SSH agent
+author: Emphori
+description: A GitHub Action to setup the SSH agent
+branding:
+  icon: terminal
+  color: red
+
+inputs:
+  ssh-private-key:
+    description: The SSH private key to be registered against the SSH agent
+    required: true
+  ssh-known-hosts:
+    description: The known hosts to be written to ~/.ssh/known_hosts
+    required: false
+
+runs:
+  using: composite
+  steps: 
+    - run: $GITHUB_ACTION_PATH/setup-ssh.sh $INPUT_SSH_PRIVATE_KEY $INPUT_SSH_KNOWN_HOSTS
+      shell: bash
