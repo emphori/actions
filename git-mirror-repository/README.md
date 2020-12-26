@@ -5,7 +5,7 @@
 ```yaml
 steps:
   ...
-- name: Setup SSH
+- name: Mirror repository
   uses: emphori/actions/git-mirror-repository@master
   with:
     git-mirror-remote-url: ${{ secrets.GIT_MIRROR_REMOTE_URL }}
