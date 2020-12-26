@@ -1,0 +1,17 @@
+name: Mirror a Git repository 
+author: Emphori
+description: A GitHub Action built to mirror your repository to another location
+branding:
+  icon: copy
+  color: purple
+  
+inputs:
+  git-mirror-remote-url:
+    description: The location to mirror your repository
+    required: true
+
+runs:
+  using: composite
+  steps: 
+    - run: $GITHUB_ACTION_PATH/git-mirror-repository.sh $INPUT_GIT_MIRROR_REMOTE_URL
+      shell: bash
