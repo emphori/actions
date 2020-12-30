@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 SSH_PRIVATE_KEY=$1
 SSH_KNOWN_HOSTS=$2
 
