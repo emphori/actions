@@ -6,12 +6,15 @@ branding:
   color: purple
   
 inputs:
+  git-mirror-source-url:
+    description: The location of your source repository
+    default: git@github.com:${{ github.repository }}
   git-mirror-remote-url:
     description: The location to mirror your repository
     required: true
 
 runs:
   using: composite
-  steps: 
-    - run: ${{ github.action_path }}/git-mirror-repository.sh ${{ inputs.git-mirror-remote-url }}
+  steps:
+    - run: ${{ github.action_path }}/git-mirror-repository.sh ${{ inputs.git-mirror-source-url }} ${{ inputs.git-mirror-remote-url }}
       shell: bash
