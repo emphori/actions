@@ -6,7 +6,7 @@ SSH_KNOWN_HOSTS=$2
 mkdir -p ~/.ssh
 
 # Start the SSH agent and expose SSH_AUTH_SOCK and SSH_AGENT_PID
-ssh-agent -s | sh
+eval `ssh-agent -s`
 
 # Add the key to the SSH agent
 ssh-add - <<< $SSH_PRIVATE_KEY
