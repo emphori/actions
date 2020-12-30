@@ -13,5 +13,5 @@ inputs:
 runs:
   using: composite
   steps: 
-    - run: $GITHUB_ACTION_PATH/git-mirror-repository.sh $INPUT_GIT_MIRROR_REMOTE_URL
+    - run: ${{ github.action_path }}/git-mirror-repository.sh ${{ inputs.git-mirror-remote-url }}
       shell: bash
