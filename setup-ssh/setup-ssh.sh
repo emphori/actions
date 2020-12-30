@@ -9,7 +9,7 @@ mkdir -p ~/.ssh
 eval `ssh-agent -s`
 
 # Add the key to the SSH agent
-ssh-add - <<< "$SSH_PRIVATE_KEY"
+ssh-add - <<< "$INPUT_SSH_PRIVATE_KEY"
 
 # If supplied, setup the known hosts
 if [ ! -z "$SSH_KNOWN_HOSTS" ]; then

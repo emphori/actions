@@ -16,5 +16,5 @@ inputs:
 runs:
   using: composite
   steps: 
-    - run: $GITHUB_ACTION_PATH/setup-ssh.sh $INPUT_SSH_PRIVATE_KEY $INPUT_SSH_KNOWN_HOSTS
+    - run: $GITHUB_ACTION_PATH/setup-ssh.sh "$INPUT_SSH_PRIVATE_KEY" "$INPUT_SSH_KNOWN_HOSTS"
       shell: bash
