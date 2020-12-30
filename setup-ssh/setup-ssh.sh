@@ -1,13 +1,17 @@
 #!/bin/bash
 
-SSH_PRIVATE_KEY=$0
-SSH_KNOWN_HOSTS=$1
+SSH_PRIVATE_KEY=$1
+SSH_KNOWN_HOSTS=$2
+
+mkdir -p ~/.ssh
+
+# Start the SSH agent and expose SSH_AUTH_SOCK and SSH_AGENT_PID
+ssh-agent -s | sh
 
 # Add the key to the SSH agent
 ssh-add - <<< $SSH_PRIVATE_KEY
 
 # If supplied, setup the known hosts
 if [ ! -z "$SSH_KNOWN_HOSTS" ]; then
-  mkdir -p ~/.ssh
   echo $SSH_KNOWN_HOSTS >> ~/.ssh/known_hosts
 fi
