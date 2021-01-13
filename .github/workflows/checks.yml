@@ -1,0 +1,16 @@
+name: Checks
+
+on: push
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Shellcheck
+      run: |
+        shopt -s nullglob
+        shellcheck */*.sh
