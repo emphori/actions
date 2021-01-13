@@ -13,4 +13,4 @@ jobs:
     - name: Shellcheck
       run: |
         shopt -s nullglob
-        shellcheck */**/*.sh
+        shellcheck */*.sh
