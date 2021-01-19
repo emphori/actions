@@ -1,0 +1,20 @@
+name: Lint incoming Git commits
+author: Emphori
+description: A GitHub Action to help maintain a consistent Git history
+branding:
+  icon: git-pull-request
+  color: green
+
+inputs:
+  git-target-branch:
+    description: The target branch from which the log will be derived
+    default: ${{ github.base_ref }}
+  git-commit-grep:
+    description: The pattern to be used to validate incoming commit messages
+    default: "^(fix|feat|chore)(\(#[0-9]*\))?\!?: .*"
+
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/git-lint-commits.sh "${{ inputs.git-commit-grep }}" "${{ inputs.git-target-branch }}"
+      shell: bash
