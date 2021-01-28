@@ -10,6 +10,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Lint commits
+      uses: ./git-lint-commits
+
     - name: Shellcheck
       run: |
         shopt -s nullglob
