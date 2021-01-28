@@ -1,0 +1,26 @@
+name: Build and publish a Docker image
+author: Emphori
+description: A GitHub Action to build and publish a Docker image
+branding:
+  icon: package
+  color: yellow
+
+inputs:
+  docker-registry:
+    description: The URL of the Docker registry
+    required: true
+  docker-username:
+    description: The username to publish under
+    default: ${{ github.repository_owner }}
+  image-name:
+    description: The image name
+    required: ${{ github.event.repository.name }}.
+  image-version:
+    description: The image version tag
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/docker-publish.sh ${{ inputs.docker-registry }} ${{ inputs.docker-username }} ${{ inputs.image-name }} ${{ inputs.image-version }}
+      shell: bash
