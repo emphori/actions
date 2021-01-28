@@ -7,11 +7,13 @@ branding:
 
 inputs:
   git-target-branch:
-    description: The target branch from which the log will be derived
+    description: The target branch agains which the log will be built
     default: ${{ github.base_ref }}
+  git-source-branch:
+    description: The source branch from which the log will be derived
+    default: ${{ github.head_ref }}
   git-commit-grep:
     description: The pattern to be used to validate incoming commit messages
-    default: "^(fix|feat|chore)(\(#[0-9]*\))?\!?: .*"
 
 runs:
   using: composite
