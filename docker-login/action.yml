@@ -1,0 +1,23 @@
+name: Login to a Docker registry
+author: Emphori
+description: A GitHub Action to setup your Docker credentials
+branding:
+  icon: key
+  color: purple
+  
+inputs:
+  docker-registry:
+    description: The URL of the Docker registry
+    required: true
+  docker-username:
+    description: The username to authenticate with
+    required: true
+  docker-password:
+    description: The password to authenticate with
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/docker-login.sh ${{ inputs.docker-registry }} ${{ inputs.docker-username }}  ${{ inputs.docker-password }}
+      shell: bash
