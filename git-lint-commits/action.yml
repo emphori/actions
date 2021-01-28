@@ -11,7 +11,6 @@ inputs:
     default: ${{ github.base_ref }}
   git-commit-grep:
     description: The pattern to be used to validate incoming commit messages
-    default: '^(fix|feat|chore)(\(#[0-9]*\))?\!?: .*'
 
 runs:
   using: composite
