@@ -2,7 +2,7 @@
 
 GIT_COMMIT_GREP=${1:-"^(fix|feat|chore)(\(#[0-9]*\))?\!?: .*"}
 GIT_TARGET_BRANCH=${2:-"master"}
-GIT_SOURCE_BRANCH=${2:-"HEAD"}
+GIT_SOURCE_BRANCH=${3:-"HEAD"}
 
 revision="origin/$GIT_TARGET_BRANCH..$GIT_SOURCE_BRANCH"
 
