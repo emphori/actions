@@ -7,7 +7,7 @@ branding:
 
 inputs:
   git-target-branch:
-    description: The target branch agains which the log will be built
+    description: The target branch against which the log will be built
     default: ${{ github.base_ref }}
   git-source-branch:
     description: The source branch from which the log will be derived
